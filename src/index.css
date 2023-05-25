@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&display=swap');
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -16,7 +17,7 @@
 
   --primary-color: dodgerblue;
   --text-light: white;
-  --index-navigation : 100;
+  --index-navigation: 100;
   --index-single-product-page: 200;
   --button-create-product: 50;
   --create-product-modal: 90;
@@ -28,24 +29,100 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
+
 .flex {
   display: flex;
 }
+
 .items-center {
   align-items: center;
 }
+
 .justify-center {
   justify-content: center;
 }
+
 .justify-between {
   justify-content: space-between;
 }
+
 @media screen and (max-width: 48em) {
   :root {
     font-size: 0.9rem;
   }
+
+  .navigation__link_text {
+    display: none;
+  }
+
+  .cartpage {
+    display: block;
+  }
+
+  .cart_product {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .ViewProduct__headings,
+  .cart_product_view,
+  .cart_product_title {
+    display: none;
+  }
+
+  .ViewProduct {
+    max-width: 95%;
+  }
+
+  .ViewProduct__row {
+    padding: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr auto auto auto;
+    gap: 0.5em;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .ViewProduct__title,
+  .ViewProduct__desc {
+    display: none;
+  }
+
+  .Form {
+    width: 20em;
+  }
+
+  .SingleProductPage h1 {
+    font-size: 2rem;
+  }
+
+
+  .SingleProductPage__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .SingleProductPage__image {
+    max-height: 12em;
+    margin-top: 2em;
+  }
+
+  .SingleProductPage__imagesList {
+    width: 80%;
+  }
+
+  .Form-register {
+    grid-template-columns: 1fr;
+  }
+
+  .Form-register>input[type='password'] {
+    grid-column: 1 / span 1;
+  }
+
 }

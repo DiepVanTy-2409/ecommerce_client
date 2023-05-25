@@ -6,8 +6,8 @@ import { RiAdminLine } from 'react-icons/ri'
 import { useDispatch, useSelector } from 'react-redux'
 import Button from '../Button/Button'
 import { logout } from '../../slice/authSlice'
-import './Navigation.css'
 import { clearCart } from '../../slice/cartSlice'
+import './Navigation.css'
 const Navigation = () => {
     const { products } = useSelector(state => state.cart)
     const { userData } = useSelector(state => state.user)
@@ -23,33 +23,29 @@ const Navigation = () => {
     return (
         <nav className="navigation flex items-center justify-between">
             <Logo />
-            <div className="navigation__right flex">
+            <ul className="navigation__right flex">
                 {/* <div className="navigation__item flex items-center">
                     <TbCategory2 />
                     Danh mục
                 </div> */}
-                <div className="navigation__item flex items-center">
-                    <IoCartOutline />
-                    <NavLink to='/cart'>Giỏ hàng{products?.length !== 0 && <span className='cart_count'>{products?.length}</span>}</NavLink>
-                </div>
+                <li className="navigation__item flex items-center">
+                    <NavLink className='navigation__link' to='/cart'><IoCartOutline /> <span className='navigation__link_text'>Giỏ hàng</span>{products?.length !== 0 && <span className='cart_count'>{products?.length}</span>}</NavLink>
+                </li>
                 {
                     userData?.role === 1
-                    && <div className="navigation__item flex items-center">
-                        <RiAdminLine />
-                        <Link to='/dashboard'>Admin</Link>
-                    </div>
-
+                    && <li className="navigation__item flex items-center">
+                        <NavLink className='navigation__link' to='/dashboard'><RiAdminLine /> <span className='navigation__link_text'>Admin</span></NavLink>
+                    </li>
                 }
-
-                <div className="navigation__item flex items-center">
+                <li className="navigation__item flex items-center">
                     {
                         !userData
-                            ? <Button handleClick={() => navigate('/login')}>Đăng nhập <CiLogin /> </Button>
-                            : <Button handleClick={handleLogout}>Đăng xuất <CiLogout /> </Button>
+                            ? <Button handleClick={() => navigate('/login')}> <span className='navigation__link_text'>Đăng nhập</span> <CiLogin /> </Button>
+                            : <Button handleClick={handleLogout}> <span className='navigation__link_text'>Đăng xuất</span><CiLogout /> </Button>
                     }
-                </div>
+                </li>
 
-            </div>
+            </ul>
         </nav>
     )
 }

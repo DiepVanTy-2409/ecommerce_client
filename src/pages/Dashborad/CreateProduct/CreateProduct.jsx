@@ -52,7 +52,7 @@ const CreateProduct = ({ handleClose }) => {
     return (
         <div className='CreateProduct'>
             <Button className='Create_button_close' handleClick={handleClose}><HiOutlineXMark /></Button>
-            <h1>Tạo mới sản phẩm</h1>
+            <h2>Tạo mới sản phẩm</h2>
             <Form onSubmit={handleSubmit}>
                 <InputField name='title' placeholder='Tên sản phẩm' value={content.title} handleChange={handleChange} required={true} />
                 <InputField name='desc' placeholder='Mô tả' value={content.desc} handleChange={handleChange} required={true} />

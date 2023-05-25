@@ -16,13 +16,13 @@ const ProductCard = ({ _id, images = [], title, cost, desc, rating = [] }) => {
       </Link>
       <div className="ProductCard__content">
         <div className="ProductCard__title_cost">
-          <h3 className='ProductCard__title'>{title}</h3>
+          <h3 className='ProductCard__title'>{title.substring(0, 10) + '...'}</h3>
           <p className='ProductCard__cost'><span style={{ fontWeight: 'bold' }}>{cost.toLocaleString('vi', {
             style: 'currency',
             currency: 'VND'
           })}</span></p>
         </div>
-        <i className='ProductCard__desc'>{desc}</i>
+        <i className='ProductCard__desc'>{desc.substring(0, 60) + '...'}</i>
         <div className="ProductCard__rate" >
           {
             rating.map((item, index) => <AiFillStar key={index} color='green' />)

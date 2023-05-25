@@ -4,17 +4,22 @@ import { useState } from 'react'
 import { IoEyeOutline } from 'react-icons/io5'
 import { Button, ToastMessage } from '../../../components'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteProduct } from '../../../slice/productSlice'
+import { deleteProduct, getMoreProducts } from '../../../slice/productSlice'
 import { Link } from 'react-router-dom'
 import UpdateProduct from '../UpdateProduct/UpdateProduct'
 import './ViewProduct.css'
 import { Modal } from '@mui/material'
 const ViewProduct = () => {
     const dispatch = useDispatch()
-    const { products } = useSelector(state => state.products)
+    const { products, isOutLoad } = useSelector(state => state.products)
     const [isOpen, setIsOpen] = useState(false)
     const [update, setUpdate] = useState(false)
     const [upadteData, setUpadteData] = useState(null)
+
+    const loadMore = () => {
+        dispatch(getMoreProducts({ skip: products.length }))
+    }
+
     const handleDelete = (id) => {
         if (confirm('Khi xóa sẽ không thẻ hoàn tác!')) {
             dispatch(deleteProduct(id))
@@ -56,6 +61,8 @@ const ViewProduct = () => {
             <Modal open={update} onClose={() => setUpdate(false)}>
                 <UpdateProduct handleClose={() => setUpdate(false)} {...upadteData} />
             </Modal>
+            {(products.length && !isOutLoad)
+                && <Button className='homepage_loadmore_btn' handleClick={loadMore}>Xem thêm</Button>}
             <ToastMessage isOpen={isOpen} setIsOpen={setIsOpen}>Đã xóa!</ToastMessage>
         </div>
     )

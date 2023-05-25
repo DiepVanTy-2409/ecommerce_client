@@ -1,15 +1,12 @@
 .CreateProduct {
-    display: flex;
-    flex-direction: column;
-    align-items:  center;
-    justify-content: center;
+    display: grid;
     position: fixed;
     background-color: white;
     border: 1px solid #f1f1f1;
     border-radius: 0.3em;
     top: 50%;
     left: 50%;
-    padding: 0.5em;
+    padding: 1em 0.5em 0.5em;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
@@ -22,6 +19,9 @@
     max-height: 90%;
     max-width: 90%;
     overflow-y: auto;
+}
+.CreateProduct h2 {
+    text-align: center;
 }
 .ImagePreview {
     height: 5em;
@@ -51,7 +51,7 @@
     color: white;
 }
 .Create_button_close {
-    align-self: flex-end;
+    justify-self: right;
     color: white;
     font-size: 1rem;
     background-color: rgb(247, 106, 106);

@@ -2,7 +2,7 @@
     display: grid;
     gap: 1em;
     width: 30em;
-    padding: 1em;
+    padding: 1em; 
 }
 
 .InputField {

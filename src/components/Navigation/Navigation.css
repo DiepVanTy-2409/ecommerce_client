@@ -54,3 +54,7 @@
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
 }
+.navigation__link {
+    display: inline-block;
+    padding: 0.5em ;
+}
