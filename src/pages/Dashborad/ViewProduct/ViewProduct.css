@@ -1,0 +1,87 @@
+.ViewProduct {
+    display: grid;
+    max-width: 80%;
+    margin: 0 auto;
+}
+.ViewProduct h1 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+.ViewProduct__headings {
+    display: grid;
+    text-align: left;
+    grid-template-columns: 1fr 2fr 3fr 2fr;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.ViewProduct__row {
+    padding: 0.5em;
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr 1fr auto auto auto;
+    gap: 0.5em;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.ViewProduct__row:hover {
+    background-color: #f2f2f2;
+}
+
+.ViewProduct__image {
+    height: 3em;
+}
+
+.ViewProduct__image img {
+    max-height: 100%;
+}
+
+.ViewProduct__title {
+    text-transform: capitalize;
+}
+
+.ViewProduct__desc {
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ViewProduct__btn {
+    background-color: white;
+}
+
+.ViewProduct__view_btn {
+    border: 1px solid mediumseagreen;
+}
+
+.ViewProduct__view_btn svg {
+    color: mediumseagreen;
+}
+
+.ViewProduct__view_btn:hover {
+    background-color: mediumseagreen;
+}
+
+.ViewProduct__delete_btn {
+    border: 1px solid #EC7063;
+}
+
+.ViewProduct__delete_btn:hover {
+    background-color: #EC7063;
+}
+
+.ViewProduct__edit_btn {
+    border: 1px solid dodgerblue;
+}
+
+.ViewProduct__edit_btn svg {
+    color: dodgerblue;
+}
+
+.ViewProduct__edit_btn:hover {
+    background-color: dodgerblue;
+}
+
+.ViewProduct__btn:hover svg {
+    color: white !important;
+}

@@ -1,0 +1,11 @@
+.Filter {
+    padding: 1em;
+}
+.Filter__CheckboxGroup,
+.Filter__radioButtonGroup {
+    margin: 0 auto;
+    width: max-content;
+}
+.Filter label {
+    text-transform: capitalize;
+}

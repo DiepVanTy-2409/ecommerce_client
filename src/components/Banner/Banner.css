@@ -1,0 +1,56 @@
+.banner {
+    height: calc(100vh - 4em);
+    background: #DA22FF;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #9733EE, #DA22FF);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #9733EE, #DA22FF);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow: hidden;
+}
+
+.banner__left {
+    flex: 2;
+    height: 100%;
+}
+
+.banner__right {
+    flex: 3;
+}
+
+.banner__image {
+    height: 80%;
+    animation: bannerImage 2s infinite linear;
+    -webkit-animation: bannerImage 2s infinite linear;
+}
+
+@keyframes bannerImage {
+
+    0%,
+    100% {
+        transform: translateY(-0.5em);
+        -webkit-transform: translateY(-0.5em);
+        -moz-transform: translateY(-0.5em);
+        -ms-transform: translateY(-0.5em);
+        -o-transform: translateY(-0.5em);
+    }
+
+    50% {
+        transform: translateY(0.5em);
+        -webkit-transform: translateY(0.5em);
+        -moz-transform: translateY(0.5em);
+        -ms-transform: translateY(0.5em);
+        -o-transform: translateY(0.5em);
+    }
+}
+@media screen and (max-width: 48em) {
+    .banner {
+        height: max-content;
+        overflow: hidden;
+        flex-direction: column-reverse;
+        padding: 1.5em;
+    }
+    .banner__image {
+        height: 15em;
+    }
+}

@@ -1,0 +1,42 @@
+.AuthPage {
+    min-height: calc( 100vh - 5em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Form-register {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.Form-register>input[type='password'] {
+    grid-column: 1 / span 2;
+}
+
+.Form-register button[type='button'],
+.Form-login button[type='button'] {
+    background-color: transparent;
+    color: dodgerblue;
+    text-decoration: underline;
+}
+
+.Form-register button[type='submit'],
+.Form-login button[type='submit'] {
+    background-color: mediumseagreen;
+    color: white;
+}
+
+.Form-login {
+    width: 25em;
+}
+
+.Form-login .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Form-login .buttons>* {
+    flex: 1;
+}

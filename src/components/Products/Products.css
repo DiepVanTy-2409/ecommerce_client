@@ -1,0 +1,30 @@
+.Products {
+    padding: 1em 0.5em;
+    width: calc(15em + 1em);
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1em;
+    row-gap: 2em;
+    margin: 1.5em auto;
+}
+
+@media screen and (min-width: 38em) {
+    .Products {
+        width: calc(15em * 2 + 2em);
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 48em) {
+    .Products {
+        width: calc(15em * 3 + 3em);
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 68em) {
+    .Products {
+        width: calc(15em * 4 + 4em);
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

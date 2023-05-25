@@ -1,0 +1,53 @@
+.button {
+    outline: none;
+    cursor: pointer;
+    padding:  0.7em;
+    font-weight: bold;
+    font-size: 1rem;
+    border: transparent;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    -ms-border-radius: 0.3em;
+    -o-border-radius: 0.3em;
+}
+
+span.clicked {
+    position: absolute;
+    display: block;
+    background: #EBF5FB;
+    height: 1em;
+    width: 1em;
+    transition: 0.5s;
+    border-radius: 50%;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation: button_clicked 1s backwards;
+    -webkit-animation: button_clicked 1s backwards;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+}
+
+@keyframes button_clicked {
+    70% {
+        transform: scale(30);
+        -webkit-transform: scale(30);
+        -moz-transform: scale(30);
+        -ms-transform: scale(30);
+        -o-transform: scale(30);
+}
+    100% {
+        opacity: 0;
+    }
+}

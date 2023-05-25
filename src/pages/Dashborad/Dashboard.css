@@ -1,0 +1,11 @@
+.Dashboard_create_btn {
+    background-color: mediumseagreen;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    z-index: var(--button-create-product);
+}

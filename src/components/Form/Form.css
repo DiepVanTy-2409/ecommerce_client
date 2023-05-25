@@ -1,0 +1,37 @@
+.Form {
+    display: grid;
+    gap: 1em;
+    width: 30em;
+    padding: 1em;
+}
+
+.InputField {
+    outline: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0.5em 1em;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    text-align: center;
+    border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    -ms-border-radius: 0.5em;
+    -o-border-radius: 0.5em;
+}
+
+.InputFiles__button_add_file {
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: max-content;
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+}
+
+.InputFiles__button_add_file~input {
+    display: none;
+}

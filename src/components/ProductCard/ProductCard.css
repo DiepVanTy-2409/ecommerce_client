@@ -1,0 +1,51 @@
+.ProductCard {
+    height: 25em;
+    width: 15em;
+    display: grid;
+    gap: 1em;
+}
+
+.ProductCard__image_box {
+    height: 15em;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ProductCard__image {
+    max-width: 10em;
+    max-height: 10em;
+    object-fit: cover;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    filter: drop-shadow(2px 4px 6px #000000a4);
+    -webkit-filter: drop-shadow(2px 4px 6px #0000007e);
+}
+
+.ProductCard:hover .ProductCard__image {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.ProductCard__content{
+    display: grid;
+}
+.ProductCard__title_cost {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ProductCard__desc {
+    font-size: 0.9em;
+}
+
+.button-addToCart {
+    background-color: dodgerblue;
+    color: white;
+}

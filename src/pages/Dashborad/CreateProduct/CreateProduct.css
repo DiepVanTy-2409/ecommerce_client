@@ -1,0 +1,71 @@
+.CreateProduct {
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    justify-content: center;
+    position: fixed;
+    background-color: white;
+    border: 1px solid #f1f1f1;
+    border-radius: 0.3em;
+    top: 50%;
+    left: 50%;
+    padding: 0.5em;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-border-radius: 0.3em;
+    -moz-border-radius: 0.3em;
+    -ms-border-radius: 0.3em;
+    -o-border-radius: 0.3em;
+    max-height: 90%;
+    max-width: 90%;
+    overflow-y: auto;
+}
+.ImagePreview {
+    height: 5em;
+    max-width: 50em;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    gap: 0.3em;
+    scrollbar-width: thin;
+    padding: 0.3em;
+}
+.ImagePreview::-webkit-scrollbar {
+    height: 5px;
+}
+.ImagePreview::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+.ImagePreview::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+}
+.ImagePreview__img {
+    height: 100%;
+    object-fit: contain;
+}
+.CreateProduct__btn_submit {
+    background-color: mediumseagreen;
+    color: white;
+}
+.Create_button_close {
+    align-self: flex-end;
+    color: white;
+    font-size: 1rem;
+    background-color: rgb(247, 106, 106);
+}
+.CreateProduct input {
+    background-color: white;
+    text-align: left;
+    border-radius: .2em;
+    -webkit-border-radius: .2em;
+    -moz-border-radius: .2em;
+    -ms-border-radius: .2em;
+    -o-border-radius: .2em;
+}
+.CreateProduct input:focus {
+    outline: 2px solid rgb(60, 117, 240);
+    border: none;
+}

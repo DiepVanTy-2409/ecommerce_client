@@ -1,0 +1,56 @@
+.navigation {
+    padding: 0.5em 1em;
+    height: 4em;
+    background-color: white;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    z-index: var(--index-navigation);
+}
+
+.navigation__right {
+    gap: 1em;
+}
+
+.navigation__item {
+    gap: 0.5em
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 900;
+    /* color: #DA22FF; */
+
+    background: #DA22FF;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #9733EE, #DA22FF);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #9733EE, #DA22FF);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cart_count {
+    background-color: tomato;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    height: 1.5em;
+    width: 1.5em;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
