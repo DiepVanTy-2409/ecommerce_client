@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './Search.css'
-import { getAllProducts, searchProducts } from '../../slice/productSlice'
+import { getProducts, searchProducts } from '../../slice/productSlice'
 const Search = () => {
     const dispatch = useDispatch()
     const [searchValue, setSearchValue] = useState('')
     const handleChange = (e) => {
         setSearchValue(e.target.value)
         if (!e.target.value) {
-            dispatch(getAllProducts())
+            dispatch(getProducts())
         }
     }
     const handleSubmit = (e) => {

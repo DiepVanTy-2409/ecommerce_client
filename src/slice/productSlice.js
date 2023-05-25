@@ -1,10 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import * as productAPI from '../api/productRequest'
 
-export const getAllProducts = createAsyncThunk(
-    'products/getAllProducts',
-    async () => {
-        const { data } = await productAPI.getAllProducts()
+export const getProducts = createAsyncThunk(
+    'products/getProducts',
+    async (filter) => {
+        const { data } = await productAPI.getProducts(filter)
+        return data
+    }
+)
+
+
+export const getMoreProducts = createAsyncThunk(
+    'products/getMoreProducts',
+    async (filter) => {
+        const { data } = await productAPI.getProducts(filter)
         return data
     }
 )
@@ -28,7 +37,7 @@ export const createProduct = createAsyncThunk(
 export const updateProduct = createAsyncThunk(
     'products/updateProduct',
     async (newData) => {
-        const {_id, ...other} = newData
+        const { _id, ...other } = newData
         const { data } = await productAPI.updateProduct(_id, other)
         return data
     }
@@ -45,6 +54,7 @@ export const searchProducts = createAsyncThunk(
 const initialState = {
     products: JSON.parse(window.localStorage.getItem('products')) || [],
     isLoading: false,
+    isOutLoad: false,
     isError: false
 }
 
@@ -52,20 +62,22 @@ export const productSlice = createSlice({
     name: 'products',
     initialState,
     extraReducers: (builder) => {
-        // GET ALL PRODUCTS
-        builder.addCase(getAllProducts.pending, (state) => {
-            state.isLoading = true
-            state.isError = false
-        })
-        builder.addCase(getAllProducts.fulfilled, (state, action) => {
+        // GET  PRODUCTS
+        builder.addCase(getProducts.fulfilled, (state, action) => {
             state.products = action.payload
             window.localStorage.setItem('products', JSON.stringify(state.products))
             state.isLoading = false
             state.isError = false
+            state.isOutLoad = false
         })
-        builder.addCase(getAllProducts.rejected, (state) => {
-            state.isLoading = false
-            state.isError = true
+        //GET MORE PRODUCTS
+
+        builder.addCase(getMoreProducts.fulfilled, (state, action) => {
+                state.products = [...state.products, ...action.payload]
+                window.localStorage.setItem('products', JSON.stringify(state.products))
+                state.isLoading = false
+                state.isError = false
+                state.isOutLoad = action.payload.length === 0
         })
 
         // CREATE PRODUCT
@@ -93,14 +105,15 @@ export const productSlice = createSlice({
             let products = state.products.filter(product => product._id !== action.payload)
             state.products = products
             window.localStorage.setItem('products', JSON.stringify(state.products))
-            state.isLoading = false
-            state.isError = false
         })
 
         // SEARCH PRODUCTS
 
         builder.addCase(searchProducts.fulfilled, (state, action) => {
             state.products = action.payload
+            state.isLoading = true
+            state.isError = false
+            state.isOutLoad = false
         })
     }
 })

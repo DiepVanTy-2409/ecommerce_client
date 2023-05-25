@@ -4,6 +4,9 @@
 .Filter__CheckboxGroup,
 .Filter__radioButtonGroup {
     margin: 0 auto;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     width: max-content;
 }
 .Filter label {

@@ -58,7 +58,10 @@ const SingleProductPage = () => {
             </div>
             <div className="SingleProductPage__footer">
                 <div className="SingleProductPage__footer__inner">
-                    <p className="SingleProductPage__cost gsapToTop">$ {product?.cost}</p>
+                    <p className="SingleProductPage__cost gsapToTop">{product?.cost.toLocaleString('vi', {
+                        style: 'currency',
+                        currency: 'VND'
+                    })}</p>
                     <p className="SingleProductPage__desc gsapToTop">{product?.desc}</p>
                     <div className="SingleProductPage__imagesList gsapToTop" ref={slideRef}>
                         {

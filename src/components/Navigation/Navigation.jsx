@@ -24,10 +24,10 @@ const Navigation = () => {
         <nav className="navigation flex items-center justify-between">
             <Logo />
             <div className="navigation__right flex">
-                <div className="navigation__item flex items-center">
+                {/* <div className="navigation__item flex items-center">
                     <TbCategory2 />
                     Danh mục
-                </div>
+                </div> */}
                 <div className="navigation__item flex items-center">
                     <IoCartOutline />
                     <NavLink to='/cart'>Giỏ hàng{products?.length !== 0 && <span className='cart_count'>{products?.length}</span>}</NavLink>

@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux"
 import CreateProduct from "./CreateProduct/CreateProduct"
 import ViewProduct from "./ViewProduct/ViewProduct"
-import { useEffect, useRef, useState } from "react"
-import { getAllProducts } from "../../slice/productSlice"
+import { useEffect, useState } from "react"
+import { getProducts } from "../../slice/productSlice"
 import { getCategories } from "../../slice/categorySlice"
 import { IoCreateOutline } from 'react-icons/io5'
 import { Button } from '../../components'
@@ -12,7 +12,7 @@ const Dashboard = () => {
   const [open, setOpen] = useState(false)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getAllProducts())
+    dispatch(getProducts())
     dispatch(getCategories())
   }, [])
   return (

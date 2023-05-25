@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Checkbox, FormControl, FormControlLabel, Radio, RadioGroup, FormLabel } from '@mui/material'
 import { getCategories } from '../../slice/categorySlice'
 import './Filter.css'
+import { getProducts } from '../../slice/productSlice'
 const prices = [
+    {
+        name: 'tất cả',
+        value: [0, 100000000]
+    },
     {
         name: 'dưới 200 nghìn',
         value: [0, 200000]
@@ -26,38 +31,83 @@ const prices = [
     },
     {
         name: 'trên 1 triệu',
-        value: [1000000]
+        value: [1000000, 1000000000]
     },
 
 ]
 const Filter = () => {
     const { categoryData } = useSelector(state => state.category)
+    const [checked, setChecked] = useState([])
+    const [radio, setRadio] = useState("[0,100000000]")
+
+    const handleFilter = (value, id) => {
+        let all = [...checked]
+        if (value) {
+            all.push(id)
+        } else {
+            all = all.filter((c) => c !== id)
+        }
+        setChecked(all)
+    }
+
+    const handleCheckAll = () => {
+        if (checked.length === categoryData.length) {
+            setChecked([])
+        } else {
+            const categories = categoryData.map(category => category._id)
+            setChecked(categories)
+        }
+    }
+
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getCategories())
+        if (categoryData.length === 0) {
+            dispatch(getCategories())
+        }
     }, [])
+
+    useEffect(() => {
+        const categories = categoryData.map(category => category._id)
+        setChecked(categories)
+    }, [categoryData])
+
+    useEffect(() => {
+        const prices = JSON.parse(radio)
+        if (checked.length || prices.length) {
+            const filter = {
+                checked, radio: prices
+            }
+            localStorage.setItem('filter', JSON.stringify(filter))
+            dispatch(getProducts(filter))
+        } else {
+            dispatch(getProducts())
+        }
+    }, [checked, radio])
+
     return (
         <div className='Filter'>
             <div className="Filter__CheckboxGroup">
-                {/* <FormControlLabel
+                <FormControlLabel
                     label="Tất cả"
                     control={
                         <Checkbox
-                            checked = {true}
+                            checked={checked.length === categoryData.length}
                             value='all'
+                            onChange={handleCheckAll}
                         />
                     }
-                /> */}
+                />
                 {
-                    categoryData?.map(category => {
+                    categoryData?.map((category) => {
                         return (
                             <FormControlLabel
                                 key={category._id}
                                 label={category.name}
                                 control={
                                     <Checkbox
+                                        checked={checked.includes(category._id)}
                                         value={category._id}
-                                        // onChange={handleChangeCategory}
+                                        onChange={(e) => handleFilter(e.target.checked, e.target.value)}
                                     />
                                 }
                             />
@@ -70,19 +120,15 @@ const Filter = () => {
                     row
                     aria-labelledby="demo-row-radio-buttons-group-label"
                     name="use-radio-group"
-                    defaultValue='all'
+                    value={radio}
+                    onChange={(e) => setRadio(e.target.value)}
                 >
-                    <FormControlLabel
-                        value="all"
-                        control={<Radio />}
-                        label="Tất cả"
-                    />
                     {
-                        prices?.map(price => {
+                        prices?.map((price) => {
                             return (
                                 <FormControlLabel
                                     key={price.name.toString()}
-                                    value={price.value.toString()}
+                                    value={JSON.stringify(price.value)}
                                     control={<Radio />}
                                     label={price.name}
                                 />
