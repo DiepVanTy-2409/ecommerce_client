@@ -4,7 +4,7 @@
 
 ## Admin Account 
 
-1. Username
+1. Email
 ```
 admin123@gmail.com
 ```
