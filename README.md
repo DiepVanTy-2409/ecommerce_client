@@ -1,6 +1,6 @@
 # ECOMMERCE APP
 
-## [Link](https://shopcart-ecommerce.netlify.app/)
+## [Link website](https://shopcart-ecommerce.netlify.app/)
 
 ## UI
 
