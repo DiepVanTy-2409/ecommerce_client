@@ -8,7 +8,7 @@
 ```
 admin123@gmail.com
 ```
-2. passwor
+2. password
 ```
 admin
 ```
