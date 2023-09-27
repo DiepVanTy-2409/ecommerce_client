@@ -1,20 +1,25 @@
 # ECOMMERCE APP
 
+## [Link](https://shopcart-ecommerce.netlify.app/)
+
 ## UI
 
 1. Login
-![login ui](./_media/login.png?raw=true)
+![login ui](./_media/login.png?raw=true) 
 
-1. Sign up
+2. Sign up
 ![sign up ui](./_media/signup.png?raw=true)
 
-1. Homa page
+3. Homa page
 ![Home page](./_media/homepage.png?raw=true)
 
-1. Single product
+4. Single product
 ![Single product](./_media/single_product.png?raw=true)
 
-1. Admin
+5. Cart
+![Cart ui](./_media/cart.png?raw=true)
+
+6. Admin
 ![Admin ui](./_media/admin.png?raw=true)
 
 ## [GET SERVER FOR APP](https://github.com/DiepVanTy-2409/ecommerce_server) 
@@ -43,7 +48,7 @@ VITE_LIMIT_LOAD_PRODUCTS=8
 
 ## Run app
 ```
-npm dev
+npm run dev
 ```
 
 
