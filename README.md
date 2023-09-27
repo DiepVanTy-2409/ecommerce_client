@@ -2,6 +2,16 @@
 
 ## [Link website](https://shopcart-ecommerce.netlify.app/)
 
+## Admin Account 
+
+1. Username
+```
+admin123@gmail.com
+```
+2. passwor
+```
+admin
+```
 ## UI
 
 1. Login
